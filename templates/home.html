@@ -1,30 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Books list</title>
-</head>
-<body>
-<h1>Online Library</h1>
-<p>This site is a prototype API for distant reading</p>
+<link rel="icon" href="data:;base64,=">
 
-<table border="1">
-    <thead>
-        <tr>
-            {% for col in colnames %}
-            <th>{{ col }}</th>
-            {% endfor %}
-        </tr>
-    </thead>
-    <tbody>
-        {% for record in records %}
-        <tr>
-            {% for col in colnames %}
-            <td>{{ record[col] }}</td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+<style>
+#books {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#books td, #books th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#books tr:nth-child(even){background-color: #f2f2f2;}
+
+#books tr:hover {background-color: #ddd;}
+
+#books th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<body>
+    <center>
+<h1>Online Library</h1>
+<p>This site is a prototype Online Book library for distant reading</p>
+        <table border="2" id="books">
+            <thead>
+                <tr>
+                    {% for col in colnames %}
+                    <th>{{ col }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    {% for col in colnames %}
+                    <td>{{ record[col] }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
 </body>
-</html>
+{% endblock %}
