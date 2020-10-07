@@ -1,22 +1,24 @@
 {% extends 'bootstrap/base.html' %}
 
-<style>
-.navbar navbar-default {
-  float: left;
-  display: block;
-}
-</style>
-
 {% block navbar %}
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
-                <form>
-                <input type="text" placeholder="Search Book by title">
-                <button  type="submit"  name="submit_buttom" value="search_book">Search</button>
+                <div id="search">
+                <form method="POST" id="submit_form">
+                <input type="text" name="book" placeholder="Search Book by title">
+                <button  type="submit"  name="submit_button" value="search_book">Search</button>
                 </form>
+                </div>
             </div>
         </div>
     </nav>
+<div class="flashes">
+  {% for message in get_flashed_messages() %}
+    {{ message }}
+  {% endfor %}
+</div>
 {% endblock %}
+
+

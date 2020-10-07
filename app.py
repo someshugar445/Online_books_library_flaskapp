@@ -31,19 +31,27 @@ def index():
     return render_template('home.html', records=books, colnames=columnNames)
 
 
-@app.route('/', methods=['GET'])
-def search_books(title):
+@app.route('/', methods=['POST'])
+def search_books():
     if request.form['submit_button'] == 'search_book':
+        title = request.form['book']
+        books_dict = {'link': str,
+                      'title': str,
+                      'author': str}
         with open('books.json') as f:
             books = json.load(f)
-        # Create an empty list for our results
+        columnNames = books_dict.keys()
         results = []
+        book_found = False
         for book in books:
-            if book['title'] == title:
+            if book['title'] in title:
                 results.append(book)
-            else:
-                "ERROR: Book with given book_id is not found"
-        return jsonify(results)
+                book_found = True
+        if book_found:
+            return render_template('home.html', records=results, colnames=columnNames)
+        else:
+            flash("ERROR: Oops Book not found!!")
+            return render_template('home.html', records=books, colnames=columnNames)
 
 
 @app.errorhandler(404)
