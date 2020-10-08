@@ -1,6 +1,25 @@
 {% extends 'bootstrap/base.html' %}
 
 {% block navbar %}
+<style>
+#toast_panel {
+      background: #e2231a;
+      color: white;
+    }
+</style>
+  <script>
+    $(document).ready(function () {
+      $('#toast_icon').on('click', function (e) {
+        $('#toast_panel').remove();
+      });
+      $('#loading').on('click', function (e) {
+        $('#toast_panel').remove();
+      });
+    });
+    $(document).ready(function (){
+    setTimeout(function(){ $('.toast').fadeOut() }, 15000);
+    })
+  </script>
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
@@ -15,10 +34,15 @@
         </div>
     </nav>
 <div class="flashes">
-  {% for message in get_flashed_messages() %}
-    {{ message }}
-  {% endfor %}
-</div>
+    {%for message in get_flashed_messages() %}
+    <div class="toast" id="toast_panel" style="position: absolute ; top: 10;right:0;width:20%;height:10%">
+        <center>
+            <div style="padding-top:20px">{{message}}</div>
+        </center>
+      <div id="toast_icon"></div>
+    </div>
+    {% endfor %}
+  </div>
 {% endblock %}
 
 
