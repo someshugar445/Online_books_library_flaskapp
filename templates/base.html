@@ -26,8 +26,14 @@
                 <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
                 <div id="search">
                 <form method="POST" id="submit_form">
-                <input type="text" name="book" placeholder="Search Book by title">
-                <button  type="submit"  name="submit_button" value="search_book">Search</button>
+<!--                <input type="text" name="book" placeholder="Search Book by title">-->
+<!--                <button  type="submit"  name="submit_button" value="search_book">Search</button>-->
+                    <div style=" padding-top: 1em;">
+                    <input type="submit" name="submit_button" value="Search book" style="float: right" />
+                    <div style="overflow: hidden; padding-right: .5em;">
+                    <input type="text" name="book" placeholder="Search Book by title"/>
+                    </div>
+                    </div>
                 </form>
                 </div>
             </div>

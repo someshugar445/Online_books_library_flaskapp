@@ -1,7 +1,7 @@
-from flask import Flask, flash, redirect, render_template, request, session, abort, jsonify
+from flask import Flask, flash, redirect, render_template, request, session, abort, jsonify, url_for
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_bootstrap import Bootstrap
-
+from forms import BookSearchForm
 import json
 
 bootstrap = Bootstrap()
@@ -33,7 +33,7 @@ def index():
 
 @app.route('/', methods=['POST'])
 def search_books():
-    if request.form['submit_button'] == 'search_book':
+    if request.form['submit_button'] == 'Search book':
         title = request.form['book']
         books_dict = {'link': str,
                       'title': str,
@@ -44,7 +44,7 @@ def search_books():
         results = []
         book_found = False
         for book in books:
-            if book['title'] in title:
+            if title in book['title']:
                 results.append(book)
                 book_found = True
         if book_found:
@@ -52,6 +52,15 @@ def search_books():
         else:
             flash("ERROR: Oops Book not found!!")
             return render_template('home.html', records=books, colnames=columnNames)
+
+
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    form = BookSearchForm()
+    print(form.search.data)
+    if request.method == 'POST':
+        return redirect((url_for('search', query=form.search.data)))
+    return render_template('home.html', form=form)
 
 
 @app.errorhandler(404)
