@@ -1,0 +1,6 @@
+wtforms
+Flask==1.1.2
+Flask-Bootstrap==3.3.7.1
+Flask-DebugToolbar==0.11.0
+Werkzeug==1.0.1
+
