@@ -2,6 +2,12 @@
 
 {% block navbar %}
 <style>
+#menu-bar {
+border: 2px solid #7255b2;
+background-color:#7255b2;
+border-radius:3px;
+color: black;
+}
 #toast_panel {
       background: #e2231a;
       color: white;
@@ -20,10 +26,10 @@
     setTimeout(function(){ $('.toast').fadeOut() }, 15000);
     })
   </script>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default" id="menu-bar">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="{{ url_for('index') }}">Home</a>
+                <a class="navbar-brand" href="{{ url_for('index') }}" style="color: white" ><strong>HOME</strong></a>
                 <div id="search">
                 <form method="POST" id="submit_form">
 <!--                <input type="text" name="book" placeholder="Search Book by title">-->
@@ -31,7 +37,7 @@
                     <div style=" padding-top: 1em;">
                     <input type="submit" name="submit_button" value="Search book" style="float: right" />
                     <div style="overflow: hidden; padding-right: .5em;">
-                    <input type="text" name="book" placeholder="Search Book by title"/>
+                    <input type="text" name="book" placeholder="Enter Book title"/>
                     </div>
                     </div>
                 </form>

@@ -8,25 +8,31 @@
 #books {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 90%;
+  border: None;
 }
 
 #books td, #books th {
-  border: 1px solid #ddd;
   padding: 8px;
 }
 
-#books tr:nth-child(even){background-color: #f2f2f2;}
+#books tr:nth-child(even){
+    background-color: #f2f2f2;
+    }
 
 #books tr:hover {background-color: #ddd;}
 
 #books th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
+  text-align: center;
+  background-color: #FFB861 ;
+  color: black;
 }
+footer{
+ background-color: #7255b2;
+ color: white;
+ }
 </style>
 {% endblock %}
 
@@ -34,7 +40,7 @@
 <body>
     <center>
 <h1>Online Book Search Engine</h1>
-<p>Welcome to my book search engine enter the book title to get book details</p>
+<p><i>Welcome to my book search engine enter the book title to get book details</i></p>
         <table border="2" id="books">
             <thead>
                 <tr>
@@ -57,7 +63,7 @@
 </body>
 <br><br>
 <center>
-    <footer style="background-color:#4CAF50;color:white">
+    <footer>
       <h3><b>Contact:</b></h3>
         <p>email: someshugar@gmail.com</p>
       <p><b>Sources: </b><a href="https://en.wikipedia.org/wiki/Wikipedia"> Wikipedia link</a></p>
