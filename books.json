@@ -140,16 +140,6 @@
     "year": 1942
   },
   {
-    "author": "Paul Celan",
-    "country": "Romania, France",
-    "imageLink": "images/poems-paul-celan.jpg",
-    "language": "German",
-    "link": "\n",
-    "pages": 320,
-    "title": "Poems",
-    "year": 1952
-  },
-  {
     "author": "Louis-Ferdinand C\u00e9line",
     "country": "France",
     "imageLink": "images/voyage-au-bout-de-la-nuit.jpg",
@@ -548,16 +538,6 @@
     "pages": 470,
     "title": "Independent People",
     "year": 1934
-  },
-  {
-    "author": "Giacomo Leopardi",
-    "country": "Italy",
-    "imageLink": "images/poems-giacomo-leopardi.jpg",
-    "language": "Italian",
-    "link": "\n",
-    "pages": 184,
-    "title": "Poems",
-    "year": 1818
   },
   {
     "author": "Doris Lessing",

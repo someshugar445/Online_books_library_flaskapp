@@ -1,7 +1,6 @@
 <link rel="icon" href="data:;base64,=">
-
 {% extends "base.html" %}
-{% block title %}Index{% endblock %}
+{% block title %}Online Book Search Engine{% endblock %}
 {% block head %}
   {{ super() }}
 <style>
@@ -10,18 +9,15 @@
   border-collapse: collapse;
   width: 90%;
   border: None;
+  padding: 10px;
 }
-
 #books td, #books th {
   padding: 8px;
 }
-
 #books tr:nth-child(even){
     background-color: #f2f2f2;
     }
-
 #books tr:hover {background-color: #ddd;}
-
 #books th {
   padding-top: 12px;
   padding-bottom: 12px;
@@ -29,10 +25,13 @@
   background-color: #FFB861 ;
   color: black;
 }
-footer{
+.footer{
  background-color: #7255b2;
  color: white;
- }
+ width: 100%;
+ padding: 1rem;
+ text-align: center;
+}
 </style>
 {% endblock %}
 
@@ -41,7 +40,8 @@ footer{
     <center>
 <h1>Online Book Search Engine</h1>
 <p><i>Welcome to my book search engine enter the book title to get book details</i></p>
-        <table border="2" id="books">
+<div class="container">
+        <table id="books" class="display" border="2">
             <thead>
                 <tr>
                     {% for col in colnames %}
@@ -59,14 +59,15 @@ footer{
                 {% endfor %}
             </tbody>
         </table>
-    </center>
-</body>
+    </div>
+</center>
 <br><br>
-<center>
+    <div class="footer">
     <footer>
       <h3><b>Contact:</b></h3>
         <p>email: someshugar@gmail.com</p>
       <p><b>Sources: </b><a href="https://en.wikipedia.org/wiki/Wikipedia"> Wikipedia link</a></p>
     </footer>
-</center>
+    </div>
+    </body>
 {% endblock %}
